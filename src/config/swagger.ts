@@ -12,10 +12,10 @@ const options = {
       description: "API documentation for the task management system",
     },
     servers: [
-      // {
-      //   url: "https://tickdone.vercel.app/api",
-      //   description: "Production API Server",
-      // },
+      {
+        url: "https://tickdone.vercel.app/api",
+        description: "Production API Server",
+      },
       {
         url: "http://localhost:3000/api",
         description: "Local API Server",
