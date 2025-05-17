@@ -12,12 +12,12 @@ const options = {
       description: "API documentation for the task management system",
     },
     servers: [
+      // {
+      //   url: "https://tickdone.vercel.app/api",
+      //   description: "Production API Server",
+      // },
       {
-        url: "https://tickdone.vercel.app/api",
-        description: "Production API Server",
-      },
-      {
-        url: "/api",
+        url: "http://localhost:3000/api",
         description: "Local API Server",
       },
     ],
@@ -31,7 +31,7 @@ const options = {
       },
     },
   },
-  apis: ["./dist/routes/*.js"], // Point to compiled JS files
+  apis: ["./src/routes/*.ts"], // Point to TypeScript route files
 };
 
 const swaggerSpec = swaggerJsdoc(options);
