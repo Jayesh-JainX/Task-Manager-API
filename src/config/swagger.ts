@@ -31,7 +31,14 @@ const options = {
       },
     },
   },
-  apis: ["./dist/routes/*.js"], // Point to both compiled JS and source TS files
+  apis: [
+    "**/routes/**/*.js",
+    "**/routes/**/*.ts",
+    "./dist/routes/**/*.js",
+    "./dist/routes/**/*.ts",
+    "./src/routes/**/*.js",
+    "./src/routes/**/*.ts",
+  ],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
@@ -49,10 +56,10 @@ export const setupSwagger = (app: Express) => {
         persistAuthorization: true,
       },
       customCssUrl:
-        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.0.0/swagger-ui.min.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.6.3/swagger-ui.min.css",
       customJs: [
-        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.0.0/swagger-ui-bundle.js",
-        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.0.0/swagger-ui-standalone-preset.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.6.3/swagger-ui-bundle.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.6.3/swagger-ui-standalone-preset.js",
       ],
     })
   );
