@@ -38,13 +38,23 @@ const swaggerSpec = swaggerJsdoc(options);
 
 export const setupSwagger = (app: Express) => {
   // Serve Swagger UI at /api-docs
-  app.use("/api-docs", swaggerUi.serve);
-  app.get(
+  app.use(
     "/api-docs",
+    swaggerUi.serve,
     swaggerUi.setup(swaggerSpec, {
       customCss: ".swagger-ui .topbar { display: none }",
       customSiteTitle: "Task Management API Documentation",
       explorer: true,
+      swaggerOptions: {
+        url: "/api-docs/swagger.json",
+        persistAuthorization: true,
+      },
     })
   );
+
+  // Serve swagger.json
+  app.get("/api-docs/swagger.json", (req, res) => {
+    res.setHeader("Content-Type", "application/json");
+    res.send(swaggerSpec);
+  });
 };
