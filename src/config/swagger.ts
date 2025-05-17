@@ -31,7 +31,7 @@ const options = {
       },
     },
   },
-  apis: ["./src/routes/*.ts"], // Point to TypeScript route files
+  apis: ["./dist/routes/*.js", "./src/routes/*.ts"], // Point to both compiled JS and source TS files
 };
 
 const swaggerSpec = swaggerJsdoc(options);
