@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../server";
+import app from "../server.js";
 
 describe("User and Task API Endpoints", () => {
   let userId: string;
