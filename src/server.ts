@@ -1,8 +1,8 @@
 import express from "express";
-import userRoutes from "./routes/user.routes";
-import taskRoutes from "./routes/task.routes";
-import { scheduleTaskAutoClose } from "./controllers/task.controller";
-import { setupSwagger } from "./config/swagger";
+import userRoutes from "./routes/user.routes.js";
+import taskRoutes from "./routes/task.routes.js";
+import { scheduleTaskAutoClose } from "./controllers/task.controller.js";
+import { setupSwagger } from "./config/swagger.js";
 
 const app = express();
 app.use(express.json());
