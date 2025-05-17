@@ -13,8 +13,12 @@ const options = {
     },
     servers: [
       {
+        url: "https://tickdone.vercel.app/api",
+        description: "Production API Server",
+      },
+      {
         url: "/api",
-        description: "API Server",
+        description: "Local API Server",
       },
     ],
     components: {
@@ -33,13 +37,14 @@ const options = {
 const swaggerSpec = swaggerJsdoc(options);
 
 export const setupSwagger = (app: Express) => {
-  // Serve Swagger UI at the root URL
-  app.use("/", swaggerUi.serve);
+  // Serve Swagger UI at /api-docs
+  app.use("/api-docs", swaggerUi.serve);
   app.get(
-    "/",
+    "/api-docs",
     swaggerUi.setup(swaggerSpec, {
       customCss: ".swagger-ui .topbar { display: none }",
       customSiteTitle: "Task Management API Documentation",
+      explorer: true,
     })
   );
 };
