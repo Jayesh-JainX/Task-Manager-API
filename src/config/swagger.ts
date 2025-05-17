@@ -46,9 +46,14 @@ export const setupSwagger = (app: Express) => {
       customSiteTitle: "Task Management API Documentation",
       explorer: true,
       swaggerOptions: {
-        url: "/api-docs/swagger.json",
         persistAuthorization: true,
       },
+      customCssUrl:
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.0.0/swagger-ui.min.css",
+      customJs: [
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.0.0/swagger-ui-bundle.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.0.0/swagger-ui-standalone-preset.js",
+      ],
     })
   );
 
