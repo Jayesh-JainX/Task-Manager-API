@@ -5,7 +5,7 @@ import {
   updateTaskStatus,
   deleteTask,
   authenticateJWT,
-} from "../controllers/task.controller";
+} from "../controllers/task.controller.js";
 
 const router = Router();
 
