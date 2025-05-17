@@ -8,9 +8,11 @@ import { setupSwagger } from "./config/swagger.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Setup Swagger UI before API routes
 setupSwagger(app);
 
-// Routes
+// API Routes
 app.use("/api", userRoutes);
 app.use("/api", taskRoutes);
 

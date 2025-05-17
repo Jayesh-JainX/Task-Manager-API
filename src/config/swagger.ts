@@ -13,12 +13,8 @@ const options = {
     },
     servers: [
       {
-        url: "https://tickdone.vercel.app/api",
-        description: "Production server",
-      },
-      {
-        url: "http://localhost:3000/api",
-        description: "Local server",
+        url: "/api",
+        description: "API Server",
       },
     ],
     components: {
@@ -31,11 +27,19 @@ const options = {
       },
     },
   },
-  apis: ["./src/routes/*.ts"], // Adjust the path based on your project structure
+  apis: ["./dist/routes/*.js"], // Point to compiled JS files
 };
 
 const swaggerSpec = swaggerJsdoc(options);
 
 export const setupSwagger = (app: Express) => {
-  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  // Serve Swagger UI at the root URL
+  app.use("/", swaggerUi.serve);
+  app.get(
+    "/",
+    swaggerUi.setup(swaggerSpec, {
+      customCss: ".swagger-ui .topbar { display: none }",
+      customSiteTitle: "Task Management API Documentation",
+    })
+  );
 };
